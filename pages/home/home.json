@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+      "x-button": "../../components/button/button",
+      "x-clock": "../../components/clock/clock",
+      "x-confirm": "../../components/confirm/confirm"
+  }
+}

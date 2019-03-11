@@ -1,0 +1,5 @@
+<!--pages/test/test.wxml-->
+<view class='view1'>{{message}}</view>
+
+<view>{{str}}</view>
+<button bindtap='handlebindTap'>点击就会改变</button>
