@@ -1,17 +1,17 @@
 <!--pages/home/home.wxml-->
 <view class="home-container">
   <scroll-view class="todoList" scroll-y="true">
-    <view class="item">
-      <view class="select {{item.selected && 'active'}}"></view>
-      <text>你接下来要去做的是写小程序</text>
+    <view class="item" wx:for="{{lists}}" wx:key="{{item.id}}" wx:for-index="index" bindtap="completeTodo" data-index="{{index}}">
+      <view class="select {{item.finished && 'active'}}"></view>
+      <text>{{item.text}}</text>
     </view>
-    
+
   </scroll-view>
-  <x-button class="createButton" text="创建任务" size="default" type="change"></x-button>
+  <x-button class="createButton" text="创建任务" size="default" type="change" bindtap="showConfirm"></x-button>
   <view class="tomato-wrapper">
     <view class="tomato">
-    <x-clock text="点击开始番茄"></x-clock>
+      <x-clock text="点击开始番茄"></x-clock>
     </view>
   </view>
-  <x-confirm visible="{{visible}}" placeholder="你想做什么？" bindconfirm="confirm" bindcancel="cancel"></x-confirm>
+  <x-confirm visible="{{visibleConfirm}}" placeholder="你想做什么？"  bindconfirm="createConfirm" bindcancel="hideConfirm"></x-confirm>
 </view>
