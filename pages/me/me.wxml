@@ -11,50 +11,30 @@
   </view>
 
   <view class="tabs">
-    <view hover-class="hover-active" class="active" >番茄历史</view>
-    <view hover-class="hover-active" class="active">我完成的任务</view>
+    <view 
+        hover-class="hover-active" 
+        class="{{tab === 'tomato' && 'active'}}"
+        data-name="tomato"
+        bindtap="changeTab"
+    >
+      番茄历史
+    </view>
+    <view 
+        hover-class="hover-active"
+        class="{{tab === 'task' && 'active'}}"
+        data-name="task"
+        bindtap="changeTab"
+    >
+      我完成的任务
+    </view>
   </view>
 
   <scroll-view scroll-y="true" class="lists">
-    <view class="item">
-      <view class="time">本周六</view>
-      <view class="content">
-        <text>18:00</text>
-        <view class="details">let、const、var的区别</view>
-      </view>
-      <view class="content">
-        <text>18:00</text>
-        <view class="details">let、const、var的区别你知道吗</view>
-      </view>
-      <view class="content">
-        <text>18:00</text>
-        <view class="details">let、const、var的区别你知道吗不知道吗</view>
-      </view>
-      <view class="content">
-        <text>18:00</text>
-        <view class="details">let、const、var的区别你知道吗不知道吗</view>
-      </view>
-    </view>
-    <view class="item">
-      <view class="time">本周日</view>
-      <view class="content">
-        <text>19:00</text>
-        <view class="details">let、const、var的区别你知道吗不知道吗</view>
-      </view>
-      <view class="content">
-        <text>19:00</text>
-        <view class="details">let、const、var的区别你知道吗不知道吗</view>
-      </view>
-    </view>
-    <view class="item">
-      <view class="time">3月18日</view>
-      <view class="content">
-        <text>10:00</text>
-        <view class="details">let、const、var的区别你知道吗不知道吗</view>
-      </view>
-      <view class="content">
-        <text>20:00</text>
-        <view class="details">let、const、var的区别你知道吗不知道吗</view>
+    <view class="item" wx:for="{{lists}}" wx:for-index="idx" wx:key="idx">
+      <view class="time">{{idx}}</view>
+      <view class="content" wx:for="{{lists[idx]}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+        <text>{{item.time}}</text>
+        <view class="details">{{item.text}}</view>
       </view>
     </view>
   </scroll-view>
