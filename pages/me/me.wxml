@@ -1,0 +1,61 @@
+<view class="me-container">
+  <view class="header">
+    <view class="avatar">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class="details">
+      <open-data type="userNickName" class="name"></open-data>
+      <text>绑定PC账号</text>
+    </view>
+    <button open-type="contact" class="qr">问题反馈</button>
+  </view>
+
+  <view class="tabs">
+    <view hover-class="hover-active" class="active" >番茄历史</view>
+    <view hover-class="hover-active" class="active">我完成的任务</view>
+  </view>
+
+  <scroll-view scroll-y="true" class="lists">
+    <view class="item">
+      <view class="time">本周六</view>
+      <view class="content">
+        <text>18:00</text>
+        <view class="details">let、const、var的区别</view>
+      </view>
+      <view class="content">
+        <text>18:00</text>
+        <view class="details">let、const、var的区别你知道吗</view>
+      </view>
+      <view class="content">
+        <text>18:00</text>
+        <view class="details">let、const、var的区别你知道吗不知道吗</view>
+      </view>
+      <view class="content">
+        <text>18:00</text>
+        <view class="details">let、const、var的区别你知道吗不知道吗</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="time">本周日</view>
+      <view class="content">
+        <text>19:00</text>
+        <view class="details">let、const、var的区别你知道吗不知道吗</view>
+      </view>
+      <view class="content">
+        <text>19:00</text>
+        <view class="details">let、const、var的区别你知道吗不知道吗</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="time">3月18日</view>
+      <view class="content">
+        <text>10:00</text>
+        <view class="details">let、const、var的区别你知道吗不知道吗</view>
+      </view>
+      <view class="content">
+        <text>20:00</text>
+        <view class="details">let、const、var的区别你知道吗不知道吗</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
