@@ -1,6 +1,6 @@
 <view class='tomato-container'>
   <view class='clock'>
-    <x-clock text="{{time}}"></x-clock>
+    <x-clock text="{{time}}" fontSize="52"></x-clock>
   </view>
   <view wx:if="{{!againButtonVisible}}">
     <view class='stop'>
