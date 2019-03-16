@@ -1,0 +1,16 @@
+<view class='tomato-container'>
+  <view class='clock'>
+    <x-clock text="{{time}}"></x-clock>
+  </view>
+  <view class='stop'>
+    <x-button text="暂停" size="mini" type="change" wx:if="{{timerStatus === 'start'}}" bindtap='clearTimer'></x-button>
+    <x-button text="开始" size="mini" type="change" wx:else bindtap='startTimer'></x-button>
+  </view>
+  <view class='abandon'>
+    <x-button text="放弃" size="mini"></x-button>
+  </view>
+  <view class='again'>
+    <x-button text="再来一组" size="mini" type="change"></x-button>
+  </view>
+  
+</view>
