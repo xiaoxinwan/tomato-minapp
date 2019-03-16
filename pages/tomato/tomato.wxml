@@ -2,15 +2,18 @@
   <view class='clock'>
     <x-clock text="{{time}}"></x-clock>
   </view>
-  <view class='stop'>
-    <x-button text="暂停" size="mini" type="change" wx:if="{{timerStatus === 'start'}}" bindtap='clearTimer'></x-button>
-    <x-button text="开始" size="mini" type="change" wx:else bindtap='startTimer'></x-button>
-  </view>
-  <view class='abandon'>
-    <x-button text="放弃" size="mini"></x-button>
-  </view>
-  <view class='again'>
-    <x-button text="再来一组" size="mini" type="change"></x-button>
+  <view wx:if="{{!againButtonVisible}}">
+    <view class='stop'>
+      <x-button text="暂停" size="mini" type="change" wx:if="{{timerStatus === 'start'}}" bindtap='clearTimer'></x-button>
+      <x-button text="开始" size="mini" type="change" wx:else bindtap='startTimer'></x-button>
+    </view>
+    <view class='abandon'>
+      <x-button text="放弃" size="mini" bindtap="showConfirm"></x-button>
+    </view>
   </view>
   
+  <view class='again' wx:if="{{againButtonVisible}}">
+    <x-button text="再来一组" size="mini" type="change" bindtap='againTimer'></x-button>
+  </view>
+  <x-confirm visible="{{confirmVisible}}" placeholder="请写出你放弃的路由！" bindconfirm="confirmAbandon" bindcancel="hideConfirm"></x-confirm>
 </view>

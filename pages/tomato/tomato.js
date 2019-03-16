@@ -4,7 +4,9 @@ Page({
   data: {
     defaultSecond: 1500, // 相当于25分钟
     time: '',            // 番茄中显示的时间
-    timerStatus: 'stop' // 定时器状态
+    timerStatus: 'stop', // 定时器状态
+    confirmVisible: false,
+    againButtonVisible: false
   },
   /**
    * 生命周期函数--监听页面显示
@@ -17,12 +19,18 @@ Page({
     this.setData({timerStatus: 'start'})
     this.changeTime()
     this.timer = setInterval(() => {
-      if(this.data.defaultSecond === 0){
-        return this.clearTimer()
-      }
       this.data.defaultSecond = this.data.defaultSecond - 1
       this.changeTime()
+      if(this.data.defaultSecond === 0){
+        this.setData({againButtonVisible: true})
+        return this.clearTimer()
+      }   
     },1000)
+  },
+  againTimer() {
+    this.data.defaultSecond = 1500
+    this.setData({ againButtonVisible: false })
+    this.startTimer()
   },
   clearTimer() {
     clearInterval(this.timer)
@@ -42,6 +50,20 @@ Page({
       minute = '0' + minute
     }
     this.setData({time: `${minute}:${second}`})
+  },
+  showConfirm() {
+    this.setData({ confirmVisible: true})
+    this.clearTimer()
+  },
+  hideConfirm() {
+    this.setData({confirmVisible: false})
+    this.startTimer()
+  },
+  confirmAbandon(event){
+    let content = event.detail
+    wx.navigateBack({
+      to: -1
+    })
   },
   /**
    * 生命周期函数--监听页面隐藏
